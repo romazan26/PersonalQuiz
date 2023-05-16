@@ -9,7 +9,11 @@ import UIKit
 
 final class ResultViewController: UIViewController {
 
+    @IBOutlet var resultLabel: UILabel!
+    @IBOutlet var infoLabel: UILabel!
+    
     var answersChosen: [Answer]!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         getFinalResult()
@@ -31,7 +35,7 @@ final class ResultViewController: UIViewController {
         
         var winnerScore = 0
         var winnerName = ""
-        var winnerIndex = 0
+        var winnerIndex = ""
         
         for answer in answersChosen {
             switch answer.animal {
@@ -51,16 +55,15 @@ final class ResultViewController: UIViewController {
                 winnerScore = answer.value
                 winnerName = answer.key
                 switch winnerName{
-                    case "dog": winnerIndex = 0
-                    case "cat": winnerIndex = 1
-                    case "rabbit": winnerIndex = 2
-                    default: winnerIndex = 3
+                    case "dog": winnerIndex = "🐶"
+                    case "cat": winnerIndex = "🐱"
+                    case "rabbit": winnerIndex = "🐰"
+                    default: winnerIndex = "🐢"
                 }
             }
         }
-       
-        print(winnerName)
-        print(winnerIndex)
+        resultLabel.text = "Вы - \(winnerIndex)"
+        infoLabel.text = "Вы действительно \(winnerName)"
         print(answers)
     
     }
