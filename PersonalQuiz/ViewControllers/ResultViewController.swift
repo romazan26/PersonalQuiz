@@ -30,6 +30,7 @@ final class ResultViewController: UIViewController {
         
         var winnerScore = 0
         var winnerName = ""
+        var winnerIndex = 0
         
         for answer in answersChosen {
             switch answer.animal {
@@ -48,12 +49,18 @@ final class ResultViewController: UIViewController {
             if answer.value > winnerScore {
                 winnerScore = answer.value
                 winnerName = answer.key
+                switch winnerName{
+                    case "dog": winnerIndex = 0
+                    case "cat": winnerIndex = 1
+                    case "rabbit": winnerIndex = 2
+                    default: winnerIndex = 3
+                }
             }
         }
-        
-        print(winnerName)
-        print(answers)
        
+        print(winnerName)
+        print(winnerIndex)
+        print(answers)
     
     }
 }
