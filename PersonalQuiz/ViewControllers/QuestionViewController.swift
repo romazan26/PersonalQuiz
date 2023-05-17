@@ -48,6 +48,7 @@ final class QuestionViewController: UIViewController {
             return
         }
         resultController.answersChosen = answersChosen
+       
     }
 
 

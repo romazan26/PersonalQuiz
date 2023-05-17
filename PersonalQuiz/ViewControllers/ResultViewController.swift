@@ -18,6 +18,7 @@ final class ResultViewController: UIViewController {
         super.viewDidLoad()
         getFinalResult()
         navigationItem.hidesBackButton = true
+        
     }
 
     
@@ -36,6 +37,7 @@ final class ResultViewController: UIViewController {
         var winnerScore = 0
         var winnerName = ""
         var winnerIndex = ""
+        var def = ""
         
         for answer in answersChosen {
             switch answer.animal {
@@ -62,9 +64,30 @@ final class ResultViewController: UIViewController {
                 }
             }
         }
+        for answer in answersChosen{
+            switch answer.animal{
+                
+            case .dog:
+                if winnerName == "dog"{
+                    def = answer.animal.definition
+                }
+            case .cat:
+                if winnerName == "cat"{
+                    def = answer.animal.definition
+                }
+            case .rabbit:
+                if winnerName == "rabbit"{
+                    def = answer.animal.definition
+                }
+            case .turtle:
+                if winnerName == "turtle"{
+                    def = answer.animal.definition
+                }
+            }
+        }
+        
         resultLabel.text = "Вы - \(winnerIndex)"
-        infoLabel.text = "Вы действительно \(winnerName)"
-        print(answers)
+        infoLabel.text = def
     
     }
 }
